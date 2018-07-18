@@ -1,27 +1,30 @@
 {
-  "name": "threejs-shadertoy",
+  "name": "three-boilerplate",
   "version": "1.0.0",
-  "description": "Three js based shadertoy viewer.",
-  "main": "src/index.js",
+  "description": "",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
-    "build": "webpack -p",
-    "push": "webpack-cli -p;git add build/bundle.js; git commit -m 'updated build ';git push"
+    "start": "webpack-dev-server"
   },
-  "keywords": [
-    "threejs",
-    "shadertoy"
-  ],
-  "author": "Shakthi Prasad G S",
-  "license": "MIT",
-  "devDependencies": {
-    "webpack": "4.0.1",
-    "webpack-cli": "2.0.10",
-    "webpack-dev-server": "3.1.0"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "dat.gui": "^0.7.2",
-    "three": "^0.93.0"
+    "gsap": "^1.19.1",
+    "jquery": "^3.2.1",
+    "normalize-css": "^2.3.1",
+    "orbit-controls-es6": "^1.0.10"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "glslify-loader": "^1.0.2",
+    "raw-loader": "^0.5.1",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }
