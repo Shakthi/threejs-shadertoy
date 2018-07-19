@@ -1,2 +1,4 @@
 node_modules
 .ds_store
+
+dist/js/three.bundle.js
