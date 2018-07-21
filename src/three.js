@@ -37,18 +37,18 @@ function init() {
     controls = new OrbitControls(camera)
 
     geometry = new THREE.PlaneBufferGeometry(1500, 750)
-    // material = new THREE.RawShaderMaterial({
-    //     vertexShader: vert,
-    //     fragmentShader: frag
-    // })
+    material = new THREE.RawShaderMaterial({
+        vertexShader: vert,
+        fragmentShader: frag
+    })
     
     var texture = new THREE.TextureLoader().load( 'resources/UV_Grid_Sm.jpg' );
 
 // immediately use the te
 
-    material = new THREE.MeshBasicMaterial({
-        map:texture
-    })
+    // material = new THREE.MeshBasicMaterial({
+    //     map:texture
+    // })
 
     mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
