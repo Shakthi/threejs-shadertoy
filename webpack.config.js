@@ -3,7 +3,7 @@ const path = require('path')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
-    entry: './src/three.js',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist/js'),
         publicPath: '/js/',
