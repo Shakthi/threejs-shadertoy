@@ -38,7 +38,8 @@ function init() {
 
     controls = new OrbitControls(camera)
     var finalfrag =  frag+"\n"+shaderToySample;
-    geometry = new THREE.PlaneBufferGeometry(1500, 750);
+    
+    geometry = new THREE.TorusKnotBufferGeometry();
     clock = new THREE.Clock();
 
     material = new THREE.RawShaderMaterial({
