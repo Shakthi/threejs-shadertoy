@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import OrbitControls from 'orbit-controls-es6'
+import ShaderToyMaterial from './ShaderToyMaterial'
 
-import vert from './shaders/shader.vert'
-import frag from './shaders/shader.frag'
+
 import shaderToySample from './shaders/shadertoySample.frag'
 
 // Initial HMR Setup
@@ -37,19 +37,11 @@ function init() {
     camera.position.z = 1000
 
     controls = new OrbitControls(camera)
-    var finalfrag =  frag+"\n"+shaderToySample;
+    
     geometry = new THREE.PlaneBufferGeometry(1500, 750);
-    clock = new THREE.Clock();
+    
 
-    material = new THREE.RawShaderMaterial({
-        vertexShader: vert,
-        fragmentShader: finalfrag ,
-        uniforms: {
-            iTime: { type: "1f", value: clock.getElapsedTime() },
-            iResolution:{value:new THREE.Vector2(1500, 750)}
-
-        }
-    })
+    material = new ShaderToyMaterial(shaderToySample);
 
     var texture = new THREE.TextureLoader().load('resources/UV_Grid_Sm.jpg');
 
@@ -72,7 +64,6 @@ function init() {
 function animate() {
     animationId = requestAnimationFrame(animate)
     renderer.render(scene, camera);
-    material.uniforms.iTime.value = clock.getElapsedTime();
 }
 
 init()
