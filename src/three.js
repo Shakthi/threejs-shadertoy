@@ -71,10 +71,6 @@ function init() {
 
 function animate() {
     animationId = requestAnimationFrame(animate)
-
-
-    mesh.rotation.y += 0.0001
-
     renderer.render(scene, camera);
     material.uniforms.iTime.value = clock.getElapsedTime();
 }
