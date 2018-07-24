@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import OrbitControls from 'orbit-controls-es6'
-import ShaderToyMaterial from './ShaderToyMaterial'
+import ShaderToyMaterial from 'three-shadertoy-material'
 
 
 import shaderToySample from './shaders/shadertoySample.frag'
