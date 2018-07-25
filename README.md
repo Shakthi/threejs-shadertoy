@@ -1,8 +1,8 @@
 # THREE SHADERTOY
-A simple THREE.js template code that make use of three-shadertoy-material on render on a mesh
+A simple THREE.js template code that make use of three-shadertoy-material to render on a mesh
 
 
-Here is the sample rendering a by default shadertoy code copied from https://www.shadertoy.com/new
+Here is the sample rendering by a default shadertoy code copied from https://www.shadertoy.com/new
 
 
 
