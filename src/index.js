@@ -41,6 +41,7 @@ function init() {
     geometry = new THREE.PlaneBufferGeometry(1500, 750);
     
 
+
     material = new ShaderToyMaterial(shaderToySample);
 
     var texture = new THREE.TextureLoader().load('resources/UV_Grid_Sm.jpg');
@@ -53,6 +54,11 @@ function init() {
 
     mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
+
+    geometry = new THREE.TorusKnotBufferGeometry();
+    mesh = new THREE.Mesh(geometry, material)
+    scene.add(mesh)
+
 
 
     renderer = new THREE.WebGLRenderer({ antialias: true })
