@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dat.gui": "^0.7.2",
     "orbit-controls-es6": "^1.0.10",
     "three-shadertoy-material": "^1.0.0"
   },

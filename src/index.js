@@ -4,6 +4,26 @@ import ShaderToyMaterial from 'three-shadertoy-material'
 
 
 import shaderToySample from './shaders/shadertoySample.frag'
+import * as dat from 'dat.gui';
+
+const gui = new dat.GUI();
+let geom = { geometry: "Plane" };
+let controller = gui.add(geom, 'geometry', ['Plane', 'TorusKnot']);
+controller.onChange(function (value) {
+    switch (value) {
+        case 'Plane':
+            mesh.visible = true;
+            mesh2.visible = false;
+            break;
+        case 'TorusKnot':
+            mesh2.visible = true;
+            mesh.visible = false;
+            break;
+
+        default:
+            break;
+    }
+});
 
 // Initial HMR Setup
 if (module.hot) {
@@ -22,7 +42,7 @@ if (module.hot) {
 
 // Three Scene
 let scene, camera, renderer, animationId, controls
-let geometry, material, mesh
+let geometry, material, mesh, mesh2;
 let clock;
 
 function init() {
@@ -36,10 +56,10 @@ function init() {
     )
     camera.position.z = 1000
 
-    controls = new OrbitControls(camera)
-    
+
+
     geometry = new THREE.PlaneBufferGeometry(1500, 750);
-    
+
 
 
     material = new ShaderToyMaterial(shaderToySample);
@@ -56,8 +76,10 @@ function init() {
     scene.add(mesh)
 
     geometry = new THREE.TorusKnotBufferGeometry();
-    mesh = new THREE.Mesh(geometry, material)
-    scene.add(mesh)
+    mesh2 = new THREE.Mesh(geometry, material)
+    scene.add(mesh2)
+    mesh2.visible = false;
+
 
 
 
@@ -65,6 +87,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight)
 
     document.body.appendChild(renderer.domElement)
+    controls = new OrbitControls(camera, renderer.domElement);
 }
 
 function animate() {
