@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import OrbitControls from 'orbit-controls-es6'
+import OrbitControls from 'three-orbitcontrols'
 import ShaderToyMaterial from 'three-shadertoy-material'
 
 
@@ -66,22 +66,17 @@ function init() {
 
     var texture = new THREE.TextureLoader().load('resources/UV_Grid_Sm.jpg');
 
-    // immediately use the te
-
-    // material = new THREE.MeshBasicMaterial({
-    //     map:texture
-    // })
 
     mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
 
     geometry = new THREE.TorusKnotBufferGeometry();
     mesh2 = new THREE.Mesh(geometry, material)
+    mesh2.scale.set(159,159,159);
     scene.add(mesh2)
     mesh2.visible = false;
 
-
-
+    
 
     renderer = new THREE.WebGLRenderer({ antialias: true })
     renderer.setSize(window.innerWidth, window.innerHeight)

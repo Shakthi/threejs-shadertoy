@@ -9,18 +9,10 @@ module.exports = {
         publicPath: '/js/',
         filename: 'three.bundle.js'
     },
+    
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
-                }
-            },
+        rules: [
+            
             {
                 test: /\.(glsl|frag|vert)$/,
                 loader: 'raw-loader',
@@ -65,6 +57,6 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'dist'),
         publicPath: '/js/'
     },
-    watch: true,
+    //watch: true,
     devtool: 'cheap-eval-source-map'
 }

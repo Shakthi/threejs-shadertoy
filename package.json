@@ -5,14 +5,16 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack-cli -p --devtool source-map "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dat.gui": "^0.7.2",
-    "orbit-controls-es6": "^1.0.10",
+    "three": "^0.94.0",
+    "three-orbitcontrols": "^2.1.2",
     "three-shadertoy-material": "^1.0.0"
   },
   "devDependencies": {
@@ -20,10 +22,11 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.4.0",
     "browser-sync": "^2.18.8",
-    "browser-sync-webpack-plugin": "^1.1.4",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "glslify-loader": "^1.0.2",
     "raw-loader": "^0.5.1",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.11.2"
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   }
 }
