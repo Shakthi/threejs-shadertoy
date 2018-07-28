@@ -15,7 +15,7 @@
     "dat.gui": "^0.7.2",
     "three": "^0.94.0",
     "three-orbitcontrols": "^2.1.2",
-    "three-shadertoy-material": "^1.0.0"
+    "three-shadertoy-material": "file:../three-shadertoy-material"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
