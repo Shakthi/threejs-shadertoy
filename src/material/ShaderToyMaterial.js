@@ -17,40 +17,49 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
         options.width = width;
         options.hieght = hieght;
 
-        var finalfrag = frag + "\n" + shaderToySample;
 
         let usedUniforms = ShaderToyMaterial.retriveUsedUniforms(shaderToySample);
-
 
         var clock = new THREE.Clock();
         super({
             vertexShader: vert,
-            fragmentShader: finalfrag,
+            fragmentShader: "",
         });
-        if (usedUniforms.iTime) {
+        if (usedUniforms.iTime|| usedUniforms.iTimeDelta) {
             this.clock = clock;
             this.registerUpdate();
         }
-        this.uniforms = this.createUniformsObject(usedUniforms,options);
 
-        
+        let data = this.createUniformsObject(usedUniforms, options);
+
+        this.uniforms = data.prof;
+        var finalfrag = frag + "\n" + data.code + "\n" + shaderToySample;
+
+        this.fragmentShader = finalfrag;
 
 
     }
 
     registerUpdate() {
-        setTimeout(()=>this.update());
-        ;
+        setTimeout(() => this.update(),0);
+
     }
 
     update() {
-        this.uniforms.iTime.value = this.clock.getElapsedTime();
+        if (this.uniforms.iTime) {
+            this.uniforms.iTime.value = this.clock.getElapsedTime();    
+        }
+        if (this.uniforms.iTimeDelta) {
+            this.uniforms.iTimeDelta.value = this.clock.getDelta();    
+        }
+        
+
         requestAnimationFrame(() => { this.update() });
     }
 
 
     //Returns uniforms need
-   static  retriveUsedUniforms(shaderToySample) {
+    static retriveUsedUniforms(shaderToySample) {
         /*
         uniform vec3 iResolution; // viewport resolution (in pixels)
         uniform float iTime; // shader playback time (in seconds)
@@ -67,27 +76,40 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
         let commentLessShader = shaderToySample.replace(commentRegex(), "");
         let expectedUniforms = "iTime,iTimeDelta,iResolution,iFrame,iChannelTime[4],iChannelResolution[4],iChannel0,iChannel1,iChannel2,iChannel3,iDate".split(",");
         let existingUniforms = {};
-         expectedUniforms.forEach(uniform => {
-            if( commentLessShader.includes(uniform))
-                existingUniforms[uniform]=true;
+        expectedUniforms.forEach(uniform => {
+            if (commentLessShader.includes(uniform))
+                existingUniforms[uniform] = true;
         });
 
         return existingUniforms;
     }
 
 
-     createUniformsObject(usedUnforms,options) {
+    createUniformsObject(usedUnforms, options) {
         let uniforms = {};
-        if (usedUnforms.iTime) {
-            uniforms.iTime = { type: "1f", value: this.clock.getElapsedTime() };
-        }
+        let uniformsCode = ""
 
         if (usedUnforms.iResolution) {
             uniforms.iResolution = { value: new THREE.Vector2(options.width, options.hieght) }
         }
 
+        if (usedUnforms.iTime) {
+            uniforms.iTime = { type: "1f", value: this.clock.getElapsedTime() };
+            uniformsCode += "uniform float iTime;\n";
+        }
 
-        return uniforms;
+        
+
+        if (usedUnforms.iTimeDelta) {
+            uniforms.iTimeDelta = { type: "1f", value: this.clock.getDelta() }
+            uniformsCode += "uniform float iTimeDelta;\n";
+
+        }
+
+
+
+
+        return { prof: uniforms, code: uniformsCode };
     }
 
 
