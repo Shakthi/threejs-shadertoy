@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import OrbitControls from 'three-orbitcontrols'
-import ShaderToyMaterial from 'three-shadertoy-material'
-
+import ShaderToyMaterial from './material/ShaderToyMaterial'
 
 import shaderToySample from './shaders/shadertoySample.frag'
 import * as dat from 'dat.gui';
@@ -26,19 +25,19 @@ controller.onChange(function (value) {
 });
 
 // Initial HMR Setup
-if (module.hot) {
-    module.hot.accept()
+// if (module.hot) {
+//     module.hot.accept()
 
-    module.hot.dispose(() => {
-        document.querySelector('canvas').remove()
-        renderer.forceContextLoss()
-        renderer.context = null
-        renderer.domElement = null
-        renderer = null
-        cancelAnimationFrame(animationId)
-        removeEventListener('resize', resize)
-    })
-}
+//     module.hot.dispose(() => {
+//         document.querySelector('canvas').remove()
+//         renderer.forceContextLoss()
+//         renderer.context = null
+//         renderer.domElement = null
+//         renderer = null
+//         cancelAnimationFrame(animationId)
+//         removeEventListener('resize', resize)
+//     })
+// }
 
 // Three Scene
 let scene, camera, renderer, animationId, controls
@@ -64,7 +63,7 @@ function init() {
 
     material = new ShaderToyMaterial(shaderToySample);
 
-    var texture = new THREE.TextureLoader().load('resources/UV_Grid_Sm.jpg');
+    //var texture = new THREE.TextureLoader().load('resources/UV_Grid_Sm.jpg');
 
 
     mesh = new THREE.Mesh(geometry, material)
