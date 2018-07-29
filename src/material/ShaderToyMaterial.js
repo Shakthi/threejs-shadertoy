@@ -25,10 +25,16 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
             vertexShader: vert,
             fragmentShader: "",
         });
-        if (usedUniforms.iTime|| usedUniforms.iTimeDelta) {
-            this.clock = clock;
+        if (usedUniforms.iTime|| usedUniforms.iTimeDelta || usedUniforms.iFrame) {
+            if (usedUniforms.iTime|| usedUniforms.iTimeDelta)
+                this.clock = clock;
             this.registerUpdate();
         }
+
+        
+        
+        
+
 
         let data = this.createUniformsObject(usedUniforms, options);
 
@@ -52,7 +58,9 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
         if (this.uniforms.iTimeDelta) {
             this.uniforms.iTimeDelta.value = this.clock.getDelta();    
         }
-        
+        if (this.uniforms.iFrame) {
+            this.uniforms.iFrame.value = this.uniforms.iFrame.value + 1;    
+        }
 
         requestAnimationFrame(() => { this.update() });
     }
@@ -98,13 +106,23 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
             uniformsCode += "uniform float iTime;\n";
         }
 
+
         
 
         if (usedUnforms.iTimeDelta) {
             uniforms.iTimeDelta = { type: "1f", value: this.clock.getDelta() }
             uniformsCode += "uniform float iTimeDelta;\n";
+        }
+
+
+        if (usedUnforms.iFrame) {
+            uniforms.iFrame = { type: "1i", value: 0 }
+            uniformsCode += "uniform int iFrame;\n";
 
         }
+
+        
+
 
 
 
