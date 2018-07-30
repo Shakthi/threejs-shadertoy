@@ -148,12 +148,37 @@ export default class ShaderToyMaterial extends THREE.RawShaderMaterial {
 
 
 
+        let this_=this;
+        function checkchannel(i) {
+        
+            if (usedUnforms["iChannel"+i]) {
 
+                let texture = options.map?options.map:this_.getDefaultTexture();
+                texture = (Array.isArray(texture))?texture[i]:texture;
+                uniforms["iChannel"+i] = { type: "t", value: texture }
+                uniformsCode += "uniform sampler2D "+["iChannel"+i]+";\n";
+            }
+        }
+
+        for (let index = 0; 4; index++) {
+            checkchannel(index);            
+        }
+        
 
 
 
 
         return { prof: uniforms, code: uniformsCode };
+    }
+
+     getDefaultTexture(){
+        if(!ShaderToyMaterial.defaultTexture)
+           ShaderToyMaterial.defaultTexture = new THREE.TextureLoader().load("https://threejs.org/examples/textures/UV_Grid_Sm.jpg",()=>{
+               this.update();
+           });
+
+        return ShaderToyMaterial.defaultTexture;
+
     }
 
 
