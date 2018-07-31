@@ -21,3 +21,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     fragColor = vec4(col,1.0);
 }
 ```
+
+Here is a screenshot of the `THREE.PlaneGeometry` with a shadertoy shader which was quoted in https://en.wikipedia.org/wiki/Shadertoy (as of 31 Jul 18)
+
+![alt text](https://raw.githubusercontent.com/Shakthi/threejs-shadertoy/master/wikishader.png)
