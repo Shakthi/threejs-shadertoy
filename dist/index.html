@@ -10,8 +10,22 @@
 	</style>
 </head>
 <body>
+
+<form id="frm1" >
+URL: <input type="text" name="urllink" value="https://www.shadertoy.com/view/Mtdyzf" size="50">
+	
+	<input type="button" onclick="myFunction()" value="Submit">
+Note this uses <a href="https://www.shadertoy.com/api">ShaderToy.Com API </a>
+</form>
+  
+  <script>
+  function myFunction() {
+	  document.getElementById("frm1").submit();
+  }
+  </script>
+
 	<script src="js/three.bundle.js"></script>
-	<a href="https://github.com/Shakthi/threejs-shadertoy"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+	<!-- <a href="https://github.com/Shakthi/threejs-shadertoy"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a> -->
 
 </body>
 </html>

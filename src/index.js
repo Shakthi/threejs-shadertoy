@@ -1,6 +1,7 @@
-import * as THREE from 'three'
+import * as THREE from 'three';
 import OrbitControls from 'three-orbitcontrols'
-import ShaderToyMaterial from './material/ShaderToyMaterial'
+import ShaderToyMaterial from 'three-shadertoy-material'
+import ShaderToyMaterialLoader from  'three-shadertoy-material-loader'
 
 import shaderToySample from './shaders/shadertoySample.frag'
 import * as dat from 'dat.gui';
@@ -25,24 +26,36 @@ controller.onChange(function (value) {
 });
 
 // Initial HMR Setup
-// if (module.hot) {
-//     module.hot.accept()
+if (module.hot) {
+    module.hot.accept()
 
-//     module.hot.dispose(() => {
-//         document.querySelector('canvas').remove()
-//         renderer.forceContextLoss()
-//         renderer.context = null
-//         renderer.domElement = null
-//         renderer = null
-//         cancelAnimationFrame(animationId)
-//         removeEventListener('resize', resize)
-//     })
-// }
+    module.hot.dispose(() => {
+        document.querySelector('canvas').remove()
+        renderer.forceContextLoss()
+        renderer.context = null
+        renderer.domElement = null
+        renderer = null
+        cancelAnimationFrame(animationId)
+        removeEventListener('resize', resize)
+    })
+}
 
 // Three Scene
 let scene, camera, renderer, animationId, controls
 let geometry, material, mesh, mesh2;
 let clock;
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
 
 function init() {
     scene = new THREE.Scene()
@@ -74,6 +87,19 @@ function init() {
     mesh2.scale.set(159,159,159);
     scene.add(mesh2)
     mesh2.visible = false;
+    let shaderToyLoader = new ShaderToyMaterialLoader();
+    shaderToyLoader.setAppKey("NtrtwR");
+    let query = getQueryVariable("urllink");
+    if(!query)
+        query = "https://www.shadertoy.com/api/v1/shaders/Mtdyzf";
+     else{
+        query = "https://www.shadertoy.com/api/v1/shaders/"+query.replace("https://www.shadertoy.com/view/","");
+     }   
+
+    shaderToyLoader.load(query,(material)=>{
+       mesh.material  = material;
+       mesh2.material  = material;        
+    });
 
     
 
