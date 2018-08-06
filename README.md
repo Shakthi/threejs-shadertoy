@@ -42,3 +42,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 And the screenshot of the `THREE.PlaneGeometry` 
 
 ![alt text](https://raw.githubusercontent.com/Shakthi/threejs-shadertoy/master/wikishader.png)
+
+
+Updates
+------
+
+Now you can load shaders dynamiclly using ShaderToy.Com Api. Type the url of shader from shadertoy.com.  This is stll an experimental feature. Only public+api shaders can loaded via this. Corresponding  npm module [three-shadertoy-material-loader](https://www.npmjs.com/package/three-shadertoy-material-loader).
