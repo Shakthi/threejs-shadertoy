@@ -23,4 +23,4 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     
     // output: pixel color
     fragColor = vec4( col, 1.0 );
-    
+}
