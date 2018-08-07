@@ -96,10 +96,15 @@ function init() {
         query = "https://www.shadertoy.com/api/v1/shaders/"+query.replace("https://www.shadertoy.com/view/","");
      }   
 
-    shaderToyLoader.load(query,(material)=>{
-       mesh.material  = material;
-       mesh2.material  = material;        
-    });
+     try {
+        shaderToyLoader.load(query,(material)=>{
+            mesh.material  = material;
+            mesh2.material  = material;        
+         });
+     } catch (error) {
+         console.log(error);
+     }
+    
 
     
 
