@@ -1,5 +1,5 @@
 # THREE SHADERTOY
-A simple THREE.js template code that make use of [three-shadertoy-material](https://www.npmjs.com/package/three-shadertoy-material) to render on a mesh
+A simple THREE.js template code that make use of [three-shadertoy-material](https://www.npmjs.com/package/three-shadertoy-material) to render on a mesh. You can edit the sourcecode or load shaders dynamiclly using shadertoy.com Api. Type the url of shader from shadertoy.com.  This is still an experimental feature. Only public+api shaders can be loaded dyanamically. Corresponding  npm module [three-shadertoy-material-loader](https://www.npmjs.com/package/three-shadertoy-material-loader).
 
 
 Here is the sample rendering by a  shadertoy code copied from https://en.wikipedia.org/wiki/Shadertoy (as of 31 Jul 18)
@@ -43,8 +43,3 @@ And the screenshot of the `THREE.PlaneGeometry`
 
 ![alt text](https://raw.githubusercontent.com/Shakthi/threejs-shadertoy/master/wikishader.png)
 
-
-Updates
-------
-
-Now you can load shaders dynamiclly using ShaderToy.Com Api. Type the url of shader from shadertoy.com.  This is stll an experimental feature. Only public+api shaders can loaded via this. Corresponding  npm module [three-shadertoy-material-loader](https://www.npmjs.com/package/three-shadertoy-material-loader).
