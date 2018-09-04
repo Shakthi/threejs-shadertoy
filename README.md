@@ -45,6 +45,7 @@ And the screenshot of the `THREE.PlaneGeometry`
 
 Other plublic+api shader demo
 --------
+- https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FXdtGzr
 - https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FMdSGDm
 - https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FMtdyzf
 - https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2F4tVXRV
