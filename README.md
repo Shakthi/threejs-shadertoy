@@ -43,3 +43,12 @@ And the screenshot of the `THREE.PlaneGeometry`
 
 ![alt text](https://raw.githubusercontent.com/Shakthi/threejs-shadertoy/master/wikishader.png)
 
+Other plublic+api shader demo
+--------
+- https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FXdtGzr
+- https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FMdSGDm
+- https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FMtdyzf
+- https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2F4tVXRV
+- https://shakthi.github.io/threejs-shadertoy/dist/?urllink=https%3A%2F%2Fwww.shadertoy.com%2Fview%2FXldczj
+
+
