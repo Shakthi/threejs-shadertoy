@@ -90,11 +90,17 @@ function init() {
     let shaderToyLoader = new ShaderToyMaterialLoader();
     shaderToyLoader.setAppKey("NtrtwR");
     let query = getQueryVariable("urllink");
+    
+    
+    
     if(!query)
         query = "https://www.shadertoy.com/api/v1/shaders/Mtdyzf";
      else{
+        document.getElementById("ulrLinkinput").value=query;
         query = "https://www.shadertoy.com/api/v1/shaders/"+query.replace("https://www.shadertoy.com/view/","");
      }   
+
+
 
      try {
         shaderToyLoader.load(query,(material)=>{
